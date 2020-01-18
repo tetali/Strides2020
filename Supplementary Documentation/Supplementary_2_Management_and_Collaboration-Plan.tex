@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx,times,verbatim,amsmath,amssymb,amsthm}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{subcaption}
+\usepackage{color}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{example}[theorem]{Example}
+
+\newtheorem*{remark*}{Remark}
+
+\newcommand{\shrink}{\def\baselinestretch{0.90}\large\normalsize}
+\newcommand{\thirdlevelsection}[1]{\vskip 4pt\noindent{\bf #1.}}
+%\renewcommand{\includegraphics}{includegraphics}
+
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{9. in}
+\setlength{\topmargin}{-0.35in}
+\setlength{\headsep}{0.0in}
+%\setlength{\itemindent}{-2.5in}
+
+
+\pagestyle{empty}
+
+\newenvironment{packed_item}{
+\begin{itemize}
+  \setlength{\itemindent}{-0em}
+  \setlength{\itemsep}{-0em}
+  \setlength{\parskip}{-0em}
+  \setlength{\parsep}{-0em}
+}{\end{itemize}}
+\newenvironment{packed_enum}{
+\begin{enumerate}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\lmin}{\ell_{\min}}
+\newcommand{\cfour}{\| \sum_{i=1}^n S_i \|_\infty}
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\mean}[1]{\mkern 1.5mu \overline{\mkern-2mu #1 \mkern-2mu}\mkern 1.5mu}
+\newcommand{\thickhline}{%
+    \noalign {\ifnum 0=`}\fi \hrule height 1pt
+    \futurelet \reserved@a \@xhline
+}
+
+\begin{document}
+
+%\renewcommand{\baselinestretch}{1.1}
+
+
+\clearpage
+%\shrink
+\pagestyle{plain}
+\pagenumbering{arabic}
+\normalbaselineskip=10.0pt
+
+
+
+\begin{center}
+  Management and Collaboration Plan
+\end{center}
+
+{\bf [This paragraph is the NSF instruction.]}
+Describe the duties and expected contributions of each individual in the institute leadership team. This plan must also describe the expertise in theappropriate disciplines provided by the PIs as required above under "Who May Serve as PI" as well as plans for working together to meet the goals ofthe program. The Management and Collaboration Plan may not to exceed 5 pages total.)
+
+
+\subsection{TRIAD Leadership and Management - [from TRIAD; need revising]}
+\label{sec:leadership2}
+%\noindent {\bf Director} Huo will serve as the Executive Director of the TRIAD institute and liaison with NSF.
+
+\noindent{\bf Executive Committee}: The TRIAD institute will be managed by its Executive Committee consisting of the Director and the four Research Theme Leads and will assume overall responsibility for setting and executing the research, education, and community outreach directions for the institute.
+As TRIAD Director, Huo will chair the committee.
+Randall, Tetali, and Wu will serve as research theme leads for Theoretical Computer Science, Mathematics, and Statistics, respectively, ensuring participation from all three communities in each of the institute's activities. In addition, Aluru will serve as theme lead for data science, bringing broader perspective gained through his involvement in White House, NITRD, NSF, and DOE initiatives, representing the science and engineering communities the institute seeks to impact.
+
+\noindent{\bf Education and Training Committee:} This committee will look after all education and training activities, including curriculum development, short term training courses, education related workshops, and hosting graduate and undergraduate student visitors. It will be led by senior personnel Romberg (Chair), Dilkina, and Song. Dilkina runs the Data Science for Social Good (DSSG) summer internship program for senior undergraduate and beginning graduate students. This program recruits students nationwide and is recently funded through an NSF REU site, as well as a supplement to the NSF South Big Data Hub. Song is the lead architect of the curriculum for the recently created Machine Learning Ph.D. program at Georgia Tech.
+
+\noindent{\bf Committee for Program Diversity}: This committee is responsible for ensuring disciplinary and demographic diversity in all of the institute's operations. Scientifically, the committee will advise for proper inclusion of multiple research approaches and perspectives that transcend traditional disciplinary silos. It  will also oversee activities to ensure geographic, career-level, gender, ethnic, and other forms of diversity. The committee will initially consist of Rachel Kuske (chair), Randall and Tetali. Kuske recently joined Georgia Tech as Chair of the School of Mathematics. Previously, she served as the Senior Advisor to Provost on Women Faculty at the University of British Columbia, and as an Associate Director for Program Diversity for the American Institute of Mathematics during 2006-2007. Randall is the ADVANCE Professor of Computing, running workshops, interacting with campus leadership, faculty and students to ensure equitable policies, and fostering mentoring and transparency. Tetali has collaborative activity (through REUs and otherwise) with minority serving institutions, including Agnes Scott, Morehouse and Spelman colleges.
+
+\vspace{-.1in}
+\subsection{Advisory Committees}
+\label{sec:committees}
+\vspace{-.1in}
+The TRIAD  leadership will seek advice, and evaluation from  internal and external experts and key stakeholders to improve effectiveness and impact operations and enhance transparency.
+
+\noindent{\bf Member Council}:
+The Council will initially consist of all senior personnel associated with the project. The membership will be adjusted periodically to capture changing priorities and interests of current members as well as potential recruits. The Executive Committee will report to the Member Council quarterly, seeking counsel on their work to date and soliciting broad input on planned activities for the next quarter.
+
+\noindent{\bf External Advisory Board}:
+We will recruit top experts nationally to constitute the External Advisory Board for TRIAD. As a close example, the Algorithms and Randomness Center (ARC) at Georgia Tech which focuses on theoretical computer science research including data science has Richard Karp, Jennifer Chayes, Ravi Kannan, and L\'aszl\'o Lov\'asz as external advisory board members. The TRIAD External Advisory Board will be charged to provide strategic guidance to the leadership of TRIAD, guidance about overall institute directions, balance of efforts, priorities, management issues, and visibility. We anticipate biannual meetings with the board, conducted via video conferencing services such as WebEx.
+
+\vspace{-.1in}
+\subsection{Launch Plan and Working Operations}
+\label{sec:woperations}
+\vspace{-.1in}
+The TRIAD Institute initially will be administratively structured within the Interdisciplinary Research Institute of Data Engineering and Science (IDEaS IRI) at Georgia Tech. This allows us to benefit tremendously from staff, infrastructure, space, and other resources associated with IDEaS, particularly useful to magnify impact of the TRIAD Institute during Phase I with a restrained budget. The Executive Directors of IDEaS (Aluru, Randall) are co-PIs of this project, facilitating harmonious interaction. We  have a track record of operating the South Big Data Hub similarly (lead PI: Aluru) within IDEaS, allowing us to deploy personnel and organizational abilities that could not be funded by the NSF award alone.
+
+\noindent{\bf Launch Plan:} We will initiate TRIAD with a kickoff retreat for the entire team of PIs and senior personnel, and lay out the vision and plan for initial activities. The meeting will be substantive and will be aimed at coalescing the team. Simultaneously, we will launch the TRIAD web portal and communications apparatus with the help of IDEaS Director of Communications (Salazar) and web developer (Korotkin).
+
+\noindent{\bf Continued Operations:} The institute will undertake research and training activities as described in the main body of the proposal. Here, we elaborate on external collaboration and outreach activities further. A key goal of the institute is to serve the foundational data science community at large nationwide. We will achieve this through hosting short term and long term visitors, ensuring and enabling community participating in events such as workshops, and leveraging synergistic efforts at Georgia Tech to amplify impact.
+
+We plan for three to four workshops per year, one  conforming to each of the main research themes outlined in the proposal. The workshop focus topics will be decided based on broad input and discussions with both internal and external stakeholders, as exemplified by the committees. For each workshop, we will recruit an organizing committee whose composition is not restricted to Georgia Tech but dictated by expertise in the topical areas, while bearing the financial and organizational responsibilities through the Institute. Each workshop will be aimed at capturing the state of the art in the topical areas of focus, be educational and informative for young researchers and those who seek to undertake research in the field, and will include brainstorming sessions to formulate open problems, and identify pressing needs and critical challenges of high impact, and plan for further research agendas. Funds will support students and researchers who are underrepresented minorities or from institutions with inadequate support. The South Hub runs a number of workshops on data-driven challenges in applications domains including health, materials, energy, and smart cities. We will leverage these meetings to benefit the TRIAD internal and external audiences.
+
+The institute will proactively seek both short (e.g., one week) and medium-term (e.g., sabbatical) visitors, and provide opportunities to those who are visiting for other reasons (e.g., provide data science projects under TRIAD to students interning under the Data Science for Social Good program). Existing resources such as IDEaS physical space for hosting visitors will be utilized for this purpose. The visitor will also naturally benefit from TRIAD's activities, including workshops and other events that take place.
+
+\noindent{\bf Annual Institute Meetings}:
+We will host  annual TRIAD  meetings that, over two to three days, will allow faculty, early career investigators, and students from participating academic units to present their research and create inter-institutional partnerships. This annual institute-wide retreat will help strengthen the creation of a working community from a collection of components.
+
+\noindent{\bf Collaboration with other TRIPODS Institutes}:
+We will engage with other TRIPODS institutes, and help coordinate TRIAD's activities within this network. This includes including leaders and experts from other institutes in our Scientific Advisory Board members, inviting other TRIPODS  leadership and members to our institute-wide retreats, coordinate to avoid duplication and waste of resources, developing joint projects, and jointly undertaking educational and training programs. We anticipate that these efforts will play a critical role in coalescing the community together in preparation for Phase II.
+
+
+
+
+\end{document}
+

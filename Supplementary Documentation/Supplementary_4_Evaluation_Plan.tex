@@ -1,0 +1,126 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx,times,verbatim,amsmath,amssymb,amsthm}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{subcaption}
+\usepackage{color}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{example}[theorem]{Example}
+
+\newtheorem*{remark*}{Remark}
+
+\newcommand{\shrink}{\def\baselinestretch{0.90}\large\normalsize}
+\newcommand{\thirdlevelsection}[1]{\vskip 4pt\noindent{\bf #1.}}
+%\renewcommand{\includegraphics}{includegraphics}
+
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{9. in}
+\setlength{\topmargin}{-0.35in}
+\setlength{\headsep}{0.0in}
+%\setlength{\itemindent}{-2.5in}
+
+
+\pagestyle{empty}
+
+\newenvironment{packed_item}{
+\begin{itemize}
+  \setlength{\itemindent}{-0em}
+  \setlength{\itemsep}{-0em}
+  \setlength{\parskip}{-0em}
+  \setlength{\parsep}{-0em}
+}{\end{itemize}}
+\newenvironment{packed_enum}{
+\begin{enumerate}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\lmin}{\ell_{\min}}
+\newcommand{\cfour}{\| \sum_{i=1}^n S_i \|_\infty}
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\mean}[1]{\mkern 1.5mu \overline{\mkern-2mu #1 \mkern-2mu}\mkern 1.5mu}
+\newcommand{\thickhline}{%
+    \noalign {\ifnum 0=`}\fi \hrule height 1pt
+    \futurelet \reserved@a \@xhline
+}
+
+\begin{document}
+
+%\renewcommand{\baselinestretch}{1.1}
+
+
+%\shrink
+\pagestyle{plain}
+\pagenumbering{arabic}
+\normalbaselineskip=10.0pt
+
+
+
+\begin{center}
+Evaluation Plan
+\end{center}
+
+{\bf [This paragraph is the NSF instruction.]}
+Describe measures to evaluate progress toward the proposed institute's goals; and a plan for quantitative and qualitative methods to assess theeffectiveness and impact of the proposed institute's activities. The Evaluation Plan may not exceed 5 pages total.
+
+\section{Measures for Success and Evaluation Mechanisms}
+We will collect both quantitative and qualitative data on the events conducted under the TRIAD Institute, as well as the functioning of its various committees and administrative structure. This data will be used for facilitating internal and external assessment, establishing benchmarks and metrics for performance, and tracking the progress of the institute towards meeting these objectives over time. Data science is rapidly changing.
+To remain relevant, the institute leadership needs to continually evaluate its programs and projects, be prepared to make changes rapidly, and adjust to changing NSF requirements.
+
+\subsection{Tracking success and metrics for evaluation}
+\label{sec:metric}
+TRIAD will establish a formal and reliable mechanism to regularly collect demographic data and other feedback, including:
+junior and senior participation in collaborative activities;
+ identification of new areas for collaboration;
+collaborative projects and cross-disciplinary activities;
+major collaborations spawned by TRIAD activities;
+ talks and publications inspired/enabled by TRIAD activities;
+new individuals participating within Georgia Tech, in the region, and nationally;
+participation in TRIAD-sponsored events, lectures series, and workshops;
+and tracking of diversity across many dimensions.
+
+We  plan to collect quantitative and qualitative assessment from all attendees of our programs.
+This data will be analyzed and collective findings and specific comments made available. The tracking and evaluation of activities will provide the leadership team with feedback to help them identify future research projects across foundations and connections with applications and to improve the effectiveness of these programs. We will use these findings to seek additional resources to grow TRIAD, both internal to Georgia Tech and externally through industry sponsorship and philanthropy.
+
+Specific metrics for evaluation of each component of the institute (Leadership, Transition, Communication, Research, Education, Evaluation) will be established soon after TRIAD is constituted. For research and education, these can be developed from the metrics discussed in specific project write-ups. For research, they can include progress toward solving the problems posed, development of models or algorithms, data collected, the engagement with end users and stakeholders, relevance to the institute, technical accomplishments and innovation of approaches, publications and presentations, progress toward transition, involvement of students, engagement with other components of TRIAD, etc.
+For Education, they can include results of survey instruments, target participants reached, progress against metrics in the program write-up, etc.
+
+Each research and education project will produce semi-annual reports indicating their
+progress. Project reports will be posted to a
+password protected section of the TRIAD web portal. The semi-annual reports will address
+topics such as those mentioned under potential metrics, and address changes in the
+direction of the project. Posted materials will be used to construct annual reports,
+and will be made available to the external evaluators. There will be two internal project reviews per year for projects.\vspace*{-0.15in}
+
+
+
+\subsection{Time-line of Activities and Milestones}
+In Phase I, TRIAD will support three to four workshops per year (including one as an innovation lab), at least two graduate students, at least one post-doctoral fellow, and a few short-term visitors.
+Note that in each case, we will actively seek co-sponsorship with other research groups, to leverage their resources.
+For example, the graduate student may be jointly funded by TRIAD and their PhD advisors.
+Similar arrangement could be made for post-doctoral fellow and short-term visitors as well.
+Workshops and other events can be co-sponsored by other entities such as the IDEaS IRI,
+South Big Data Hub, or other centers and institutes at Georgia Tech. The data-driven
+programs sponsored by Georgia Tech Institute focusing on domain sciences (e.g., Center for Health Analytics, Institute for Materials, Strategic Energy Institute) can serve as partners
+or even main sponsors for relevant topics.
+
+
+
+\end{document}
+

@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx,times,verbatim,amsmath,amssymb,amsthm}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{subcaption}
+\usepackage{color}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{example}[theorem]{Example}
+
+\newtheorem*{remark*}{Remark}
+
+\newcommand{\shrink}{\def\baselinestretch{0.90}\large\normalsize}
+\newcommand{\thirdlevelsection}[1]{\vskip 4pt\noindent{\bf #1.}}
+%\renewcommand{\includegraphics}{includegraphics}
+
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{9. in}
+\setlength{\topmargin}{-0.35in}
+\setlength{\headsep}{0.0in}
+%\setlength{\itemindent}{-2.5in}
+
+
+\pagestyle{empty}
+
+\newenvironment{packed_item}{
+\begin{itemize}
+  \setlength{\itemindent}{-0em}
+  \setlength{\itemsep}{-0em}
+  \setlength{\parskip}{-0em}
+  \setlength{\parsep}{-0em}
+}{\end{itemize}}
+\newenvironment{packed_enum}{
+\begin{enumerate}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\lmin}{\ell_{\min}}
+\newcommand{\cfour}{\| \sum_{i=1}^n S_i \|_\infty}
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\mean}[1]{\mkern 1.5mu \overline{\mkern-2mu #1 \mkern-2mu}\mkern 1.5mu}
+\newcommand{\thickhline}{%
+    \noalign {\ifnum 0=`}\fi \hrule height 1pt
+    \futurelet \reserved@a \@xhline
+}
+
+\begin{document}
+
+%\renewcommand{\baselinestretch}{1.1}
+
+
+%\shrink
+\pagestyle{plain}
+\pagenumbering{arabic}
+\normalbaselineskip=10.0pt
+
+
+
+
+\clearpage
+\begin{center}
+Letters of Collaboration
+\end{center}
+
+{\bf [This paragraph is the NSF instruction.]}
+Include any letters of collaboration documenting arrangements of significance for the proposed project, including commitments for space, faculty andstaff positions, equipment, and access to facilities. Following the PAPPG, such arrangements should be described in the Facilities, Equipment, andOther Resources section of the proposal, and letters of support or endorsement and letters of a laudatory nature for the proposed project are notallowed and are cause for return without review.
+
+{\bf XH:} We may not need letter of collaboration in this proposal. 
+
+
+\end{document}
+

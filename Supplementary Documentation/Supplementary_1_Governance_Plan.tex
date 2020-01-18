@@ -1,0 +1,153 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx,times,verbatim,amsmath,amssymb,amsthm}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{subcaption}
+\usepackage{color}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{example}[theorem]{Example}
+
+\newtheorem*{remark*}{Remark}
+
+\newcommand{\shrink}{\def\baselinestretch{0.90}\large\normalsize}
+\newcommand{\thirdlevelsection}[1]{\vskip 4pt\noindent{\bf #1.}}
+%\renewcommand{\includegraphics}{includegraphics}
+
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{9. in}
+\setlength{\topmargin}{-0.35in}
+\setlength{\headsep}{0.0in}
+%\setlength{\itemindent}{-2.5in}
+
+
+\pagestyle{empty}
+
+\newenvironment{packed_item}{
+\begin{itemize}
+  \setlength{\itemindent}{-0em}
+  \setlength{\itemsep}{-0em}
+  \setlength{\parskip}{-0em}
+  \setlength{\parsep}{-0em}
+}{\end{itemize}}
+\newenvironment{packed_enum}{
+\begin{enumerate}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\lmin}{\ell_{\min}}
+\newcommand{\cfour}{\| \sum_{i=1}^n S_i \|_\infty}
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\mean}[1]{\mkern 1.5mu \overline{\mkern-2mu #1 \mkern-2mu}\mkern 1.5mu}
+\newcommand{\thickhline}{%
+    \noalign {\ifnum 0=`}\fi \hrule height 1pt
+    \futurelet \reserved@a \@xhline
+}
+
+\begin{document}
+
+%\renewcommand{\baselinestretch}{1.1}
+
+
+\clearpage
+%\shrink
+\pagestyle{plain}
+\pagenumbering{arabic}
+\normalbaselineskip=10.0pt
+
+\begin{center}
+Governance Plan
+\end{center}
+
+{\bf [This paragraph is the NSF instruction.]}
+Describe the governance structure of the proposed institute, including a list of individuals who have agreed to serve as members of a governing boardor advisory council; mechanisms for fiscal and management oversight by a governing board or other group; plans for governing/advisory boardmembership terms and succession; mechanisms for focusing the proposed institute's activities; mechanisms for choosing programs, selectingparticipants, and allocating funds; mechanisms for recruitment, selection, and appointment involved in institute leadership succession and otherleadership changes; and rationales for the proposed management practices. The Governance Plan may not exceed 5 pages total.
+
+
+\section{Operational Plan - [from TRIAD, need reworking]}
+\label{sec:leadership}
+
+TRIAD aims to have an agile and flexible agenda to be able to respond quickly to changing needs of the frontiers of the foundation of data science.
+Achieving this requires regular evaluation.
+Our leadership will have the responsibility of evaluating all institute programs as well as its own performance.
+In addition, we will solicit assistance and guidance from national experts by constituting
+an External Advisory Board (see Collaboration and Evaluation Plan for details).
+Evaluation will focus on the timeliness and appropriateness of the research topics,
+institute's activities to reach external audience, ways programs can improve, and on the institute's success in meeting its mission.
+
+\vspace*{-1em}
+
+\subsection{Leadership Structure for Phase I}
+With full operation in Phase II in mind, we propose to ramp up operations with a more modest leadership structure for Phase I.
+A detailed TRIAD leadership and management plan can be found in Sections 2.1 and 2.2 in the Collaboration and Evaluation plan.
+A summary is presented below.
+
+1) Lead PI Huo will serve as the Executive Director of the TRIAD institute.
+
+2) Executive Committee: The TRIAD institute will be managed by its Executive Committee consisting of the five PIs, who exemplify the three foundational areas and community efforts.
+
+3) Education and Training Committee: Responsible for curriculum development and educational outreach.
+
+4) Committee for Program Diversity: Responsible for ensuring scientific as well as human diversity in all of the institute's operations.
+
+5) Advisory Committees, including
+\noindent \vspace*{-0.5em}
+\begin{packed_item}
+\item Member Council: The Council will initially consist of all senior personnel associated with the project, and is subject to future adjustment;
+
+\item External Advisory Board: We will recruit top experts nationally for providing guidance, strategic advice, and independent evaluation.
+\end{packed_item}
+
+The Institute will be based at Georgia Tech, a world-class research university with extensive expertise in mathematics, theoretical computer science, and statistics.
+Research and education at Georgia Tech is known for its real-world focus, and strong ties to government and industry.
+It is located in Atlanta, the eighth largest economy in the nation.
+Georgia Tech has a strong engineering presence: all of its computing and engineering departments are ranked in the top $10$ by the U.S. News \& World Report, with over half in the top five.
+It is the largest producer of engineering degrees awarded to women and under-represented minorities.
+
+Georgia Tech has shown very strong commitments to data science through several major investments in recent years.
+In $2015$, Georgia Tech became one of the co-leads for the NSF South Big Data Hub, one of four in the country.
+In $2016$, Georgia Tech launched the interdisciplinary Institute for Data Engineering and Science (IDEaS).
+Georgia Tech is also the major partner behind the construction of Coda, a $750,000$ mixed-use facility in Technology Square next to the Georgia Tech campus.
+Coda will be occupied equally by industry and academia when completed in $2018$, and will serve as the ideal location for TRIAD, as IDEaS, the NSF South Big Data Hub, and the School of Computational Science and Engineering will be co-located there.
+
+
+
+
+\subsection{Building on the host institution's resources}
+\label{sec:leverage}
+Georgia Tech offers world class facilities to support national scope institutes and hosting
+external visitors. Tech's Global Learning Center is a state-of-the art conference facility that can support meetings from small workshops to major conventions. The Center is adjacent
+to the Georgia Tech Hotel and Convention Center, both on campus, providing easy access. Georgia Tech Strategic Consulting offers a range of services such as organizational review; strategy development and implementation; portfolio management; project management; change management; organizational design and development; and process optimization, that we can
+leverage in establishing TRIAD. The Office of Industry Engagement assists with industry
+partnerships, and with commercialization. Georgia Tech Institute Communications provides communications, marketing, and special events support. The communications personnel working
+for other organizations (e.g., IDEaS) are hooked into this network, allowing TRIAD to benefit
+from their professional expertise. Synergistic institutes on campus such as the IDEaS, South
+Big Data Hub, Machine Learning center, etc. provide a holistic atmosphere to promote foundational data science research. TRIAD institute will be ultimately housed along with all of these in the new 21-story Coda building devoted to data science and high performance computing, in early 2019.
+It evaluates promising technologies, markets Georgia Tech innovations to industry, negotiates licensing agreements, and maintains relationships with industry partners.
+
+
+The Office of Sponsored Programs provides support and administration for all research contracts/grants at Georgia Tech.
+, including review of contract/grant requirements, determination of appropriate terms and conditions, establishment of pre-contract agreements, and monitoring all active contracts and grants.
+The Office of Sponsored Program provides assistance in identifying, reviewing, processing, and submitting formal proposals, and other services for business matters and contract terms.
+
+
+
+
+
+\end{document}
+
