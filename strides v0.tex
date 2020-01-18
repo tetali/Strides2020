@@ -1,0 +1,996 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx,times,verbatim,amsmath,amssymb,amsthm}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{subcaption}
+\usepackage{color}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{example}[theorem]{Example}
+
+\newtheorem*{remark*}{Remark}
+
+\newcommand{\shrink}{\def\baselinestretch{0.90}\large\normalsize}
+\newcommand{\thirdlevelsection}[1]{\vskip 4pt\noindent{\bf #1.}}
+%\renewcommand{\includegraphics}{includegraphics}
+
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{9. in}
+\setlength{\topmargin}{-0.35in}
+\setlength{\headsep}{0.0in}
+%\setlength{\itemindent}{-2.5in}
+
+\pagestyle{plain} \pagenumbering{arabic}
+
+\title{\bf NSF TRIPODS Phase II NSF 19-604  \\
+\vspace*{0.5in}
+Collaborative Research: STRIDES: Southeastern Transdisciplinary Research Institute for Data Engineering and Science
+}
+
+\author{The GT\&Duke STRIDES Team}
+
+\pagestyle{empty}
+
+\newenvironment{packed_item}{
+\begin{itemize}
+  \setlength{\itemindent}{-0em}
+  \setlength{\itemsep}{-0em}
+  \setlength{\parskip}{-0em}
+  \setlength{\parsep}{-0em}
+}{\end{itemize}}
+\newenvironment{packed_enum}{
+\begin{enumerate}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\lmin}{\ell_{\min}}
+\newcommand{\cfour}{\| \sum_{i=1}^n S_i \|_\infty}
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\mean}[1]{\mkern 1.5mu \overline{\mkern-2mu #1 \mkern-2mu}\mkern 1.5mu}
+\newcommand{\thickhline}{%
+    \noalign {\ifnum 0=`}\fi \hrule height 1pt
+    \futurelet \reserved@a \@xhline
+}
+
+\begin{document}
+
+%\renewcommand{\baselinestretch}{1.1}
+
+\maketitle
+
+\clearpage
+%\shrink
+\pagestyle{plain}
+\pagenumbering{arabic}
+\normalbaselineskip=10.0pt
+
+\newcommand{\myspace}{1.3}
+\baselineskip=\myspace\normalbaselineskip
+
+\begin{center}
+Summary
+\end{center}
+
+{\bf [this is from the LOI]}
+We propose creating a new Institute aiming to explore and advance the synergies between mathematics, theoretical computer science (TCS), statistics, and electrical engineering in laying the theoretical foundations for data science. Proposed activities include national interdisciplinary workshops, collaborative cross-disciplinary projects, research labs with participants from all communities, joint seminars, and co-supervision of Ph.D. students and postdocs by multiple mentors and institutes, in order to catalyze and promote a true synergy among all related disciplines. Georgia Tech and Duke University will build on the existing strengths and prominence in all the research areas (mathematics, TCS, statistics, and electrical engineering) and build on synergistic avenues of research. Georgia Tech has renowned faculty in the College of Computing, the College of Engineering, the College of Sciences, and the Scheller College of Business and is considered the preeminent technology university in the Southeast. Duke is known as an institution for its interdisciplinarity, and Duke faculty and Duke faculty have world class expertise and recognition in data science, in addition Duke also has access to rich data repositories, including those of a top medical school and regional hospital as well as a 21st century social science data infrastructure built by the Social Science Research Institute (SSRI). The coupling of the strengths in the technological aspects of data science at Georgia Tech with the liberal arts, social science, and health aspects of data science at Duke offer a rich educational and research foundation in the Southeast. An important component of the proposal is to foster professional development both for junior data scientists as well as domain experts that want to become more involved in data science. Georgia Tech and Duke will develop innovative programs that will reach out to technology
+centers, medical centers, as well as social science centers with the goal of increasing the interactions between junior data scientists and domain experts. The two institutions will also promote diversity and representation that reflects the community via collaborations with Under-represented Minorities institutions.
+
+Georgia Tech and Duke have already made significant investments. Georgia Tech has a new Interdisciplinary Research
+Institute on Data Engineering and Science (IDEaS), a new 21-story building (Coda) co-locating data science industry and academia in Midtown Atlanta, and serving as collaborative lead institution to the NSF South Big Data Hub, which spans 16 Southern states and over a hundred partner organizations. Duke University has made considerable investments in data science research and education through the Rhodes Information Initiative at Duke (iiD), initiated in 2013.
+The iiD has features including labs, team rooms, classrooms, offices, and the 2-story Ahmadieh Family Atrium, all of which are designed to incubate cross-disciplinary interactions among faculty, postdocs, and students. In addition, Duke has a new data science initiative focusing on information and analysis-driven health innovation entitled AI.Health which has a goal of engaging the biotechnology and biomedical industries in the NC Triangle region
+including the Duke Hospital system with data science expertise and developing the educational framework to train data scientists in this application space. Duke University and Georgia Tech are prominent research institutes in the southeast. Georgia Tech is conveniently located at the midtown of Atlanta, with easy access to public transportation (e.g., MARTA), which routes directly to Atlanta's international airport. The Hartsfield-Jackson Atlanta International
+Airport serves the largest number of passengers in the world and offers direct flights to most US cities. Many Fortune 500 companies have headquarters in Atlanta. There are many local companies that are data oriented. Duke University is in the Research Triangle in North Carolina with strong local industrial research presence. Both Duke University and Georgia Tech have strengths in all related research communities. The joint institute (by Duke and Georgia Tech) will directly benefit the entire southeast, while also having a positive national impact.
+
+\clearpage
+
+{\bf NSF requirement.}
+Project Description, limited to 30 pages total, consists of each of the following topics:
+
+The {\bf intellectual focus of the proposed institute}; the rationale for the proposed institute, its mission and goals, and its expected impact; plans for future growth and resource development; proposed steps toward developing its role as a national resource; and results of prior NSF support of the institute if applicable. This section is not to exceed 20 pages total including results of prior NSF support, which may take up to 5 pages.
+
+A tentative {\bf schedule} of scientific activities, with plans for Year 1 and a provisional schedule for Years 2 and 3.
+
+{\bf Plans for human resource development}, including the selection and mentoring of a diverse cohort of students and postdoctoral participants, as appropriate, and the selection and involvement of researchers at all career levels.
+
+{\bf Plans for outreach and for dissemination of outcomes}.
+
+\clearpage
+
+\setcounter{page}{1}
+
+\begin{center}
+Intellectual Focus of the Proposed Institute (not to exceed 20 pages)
+\end{center}
+
+\section{Introduction}
+%\vspace*{-1em}
+The Georgia Institute of Technology and the Duke University propose to create {\it \bf STRIDES:} {\it the {\bf S}outheastern {\bf T}ransdisciplinary {\bf R}esearch {\bf I}nstitute for {\bf D}ata {\bf E}ngineering and {\bf S}cience}.
+STRIDES will integrate research and education in mathematical, statistical, and algorithmic foundations for data science.
+The initial research topics of focus include {\bf xxx the following will be updated later.}
+(T1) transcribing data with new models and mathematics,
+(T2) creating new paradigms for decentralized and scalable inference,
+and (T3) designing efficient strategies with theoretical guarantees, harnessing the combined
+perspectives of statistics, optimization, and numerical methods.
+The research will be carried out in the context of big datasets from multiple domains
+including biology, design, manufacturing, logistics, and sustainability.
+
+During its lifetime, the institute will develop methods and tools to address
+high-impact multidisciplinary foundational challenges in data science.  The institute
+will bring together mathematicians, computer scientists, and statisticians to jointly
+work with domain specialists with data challenges across engineering, science and computing.
+Data arising from experimental, observational, and/or simulated processes in the natural and
+social sciences and other areas have created enormous opportunities for understanding the
+world in which we live. Data science is already a reality in industrial and scientific
+enterprises and there is ever-increasing demand for both research and training in this field.
+Virtually every scientific discipline is expected to benefit from advances in theoretical
+foundations of data science, which we seek to strengthen through the TRIAD institute.
+
+%{\it Fundamental problems in data science.}
+The spectrum of fundamental problems in data science is vast. We broadly categorize them as
+addressing 1) how the data is collected and interpreted, and 2) how the data is analyzed.
+To address the former, we propose to study modeling and analysis techniques for data with new features and in nontraditional formats (T1), as well as develop decentralized modeling and
+processing techniques which would not require the data to be transferred to a data center (T2).
+To address the latter aspect, we propose to study modeling approaches with optimal statistical
+and computational trade-offs, and develop algorithms that can be accelerated, distributed/parallelized, are asynchronous and/or stochastic (T3).
+Key to fundamental advances in these research topics is to derive theoretical guarantees in both the asymptotic and finite-sample cases.
+
+{\bf Intellectual merits.}
+The emergence of massive computational power via cloud computing and supercomputing infrastructure
+has given theorists an unprecedented opportunity to join the fray of empirical science and make
+significant impact on applications. TRIAD will be particularly well placed to address the growing challenges in the foundations of data science. TRIAD's intellectual focus is to design and build
+transdisciplinary research programs that provide an enabling and cross-fertilizing platform of ideas and stakeholders (including theoreticians/scientists from domain sciences and users of technology).
+
+
+{\bf Broader impacts.}
+TRIAD will enrich careers of participants ranging from undergraduate students to senior researchers from around the nation in due time. We will make prudent efforts to reach out to diverse
+communities including participants from smaller colleges and institutions serving under-represented minorities. TRIAD team will actively engage in outreach through public lectures, curricular
+materials, press releases and dissemination via social channels.
+
+\vspace*{-1em}
+\subsection{Key Functions of the Institute}
+%{\it Research topic identification.}
+TRIAD will lead and administer a fully integrated program of Research, Education and Outreach in foundations of data science.  The institute's research agenda will inform educational programs and
+will be driven by transdisciplinary solutions to pressing data science challenges.  The institute will facilitate interactive interactions between theorists and practitioners with the aim of bringing fundamentally rigorous and broadly applicable solutions and tools to support data-driven discovery in sciences, engineering, and beyond.
+
+%{\it Overview of proposed activities}.
+Proposed activities include national interdisciplinary workshops, collaborative
+cross-disciplinary projects, research labs with participants from all communities,
+joint seminars, and co-supervision of Ph.D. students and postdocs by multiple mentors,
+in order to catalyze and promote a true synergy among mathematicians, statisticians,
+and theoretical and algorithmic computer scientists.
+
+TRIAD is particularly well placed to address the growing challenges in data science.
+Nowadays, analysis of massive, dynamic, and complex data is an area of great importance
+in many domains. To support true understanding of what is feasible through data-driven
+approaches and develop broadly applicable and insightful solutions, it is imperative to
+establish theoretical foundations of data science. Much of the underlying intellectual
+foundations underpinning data science lies at the intersection between computer science, statistics, and mathematics.
+%TRIAD's intellectual focus is to design and build transdisciplinary research programs that provide an enabling and cross-fertilizing platform of ideas and stakeholders (including theoreticians/scientists from domain sciences and users of technology).
+In Phase I, TRIAD's main mode of operation will be focused on creating and operating
+working groups, organizing national and international workshops, and innovation labs.
+Participating individuals will include senior, mid-career, and junior faculty members,
+early career researchers including research scientists and postdoctoral fellows,
+undergraduate and graduate students, and data science practitioners.
+All activities will be planned to include interdisciplinary researchers rooted in the
+three foundational disciplines: mathematics, theoretical computer science, and statistics.
+TRIAD will rapidly deploy information technology and communication infrastructure so that
+research findings can be quickly and effectively disseminated, while the research community
+at large can easily access and comment/critique TRIAD's choice of research programs and topics.
+The utilization of contemporary cyber-infrastructure is likely to lead to international impact
+and collaboration, which enhances the institute's ability to establish a solid foundation for
+data science research. The institute will create an intellectual atmosphere that connects
+theoreticians, practitioners, and scientists from across the nation and the world on a
+regular basis. Findings in TRIAD's activities will lead to presentations at major conferences
+and publications in refereed journals.
+
+%{\bf Broader impacts.}
+TRIAD's programs will enrich careers of participants ranging from undergraduate students to senior researchers from around the nation.
+Postdoctoral fellows and graduate students are introduced to collaborative research in the proposed activities and through workshops.
+TRIAD personnel will make prudent efforts to reach out to diverse communities including
+participants from smaller colleges and institutions serving under-represented minorities.
+TRIAD will conduct public outreach through public lectures, press releases, and dissemination via internet and social media.
+%TRIAD will work with associated professional societies, including Association for Computing Machinery,  American Statistical Association, American Mathematics Society, Society of Industrial and Applied Mathematics, IEEE, and potentially others to provide stimulus to data-science-related initiatives.
+TRIAD will draw upon the nationally acclaimed Georgia Tech online degree programs (e.g., online
+masters programs in computer science and in analytics) and curriculum development efforts in
+machine learning and data science, so that students across the nation can learn about state-of-the-art and interdisciplinary research topics that are not typically covered within traditional campus courses.
+For Phase II, we propose additional activities (such as customized workshops) that will combine
+interactive projects and field trips to acquaint undergraduate and/or high-school students
+nationwide with data-science related techniques and the themes of the TRIAD's year-long programs.
+
+
+%{\it Our strengths.}
+\vspace*{-1em}
+\subsection{University Support and Infrastructure}
+Georgia Institute of Technology (abbreviated Georgia Tech hereafter) is a world-class research university with extensive expertise in data analytics, statistics, theoretical
+computer science, operations research and simulation, and mathematics.
+All of its computing and engineering departments are ranked in the top 10 by the
+U.S. News \& World Report, with over half in the top five. Most of its statistics, optimization,
+and operations research faculty are housed in the School of Industrial Systems and Engineering,
+ranked as the top such department in the nation. Georgia Tech is the largest producer of engineering degrees awarded to women and underrepresented minorities. Research and education
+at Georgia Tech is known for its real-world focus, and strong ties to government and industry.
+
+
+Georgia Tech has shown very strong commitment to Data Science through several major investments in recent years. In 2016, Georgia Tech launched the interdisciplinary Research Institute (IRI) for Data Engineering and Science (IDEaS), charged with facilitating, nurturing, and promoting data science research and data-driven discovery across campus. Georgia Tech has both on-campus and
+on-line M.S. program in Analytics, and is launching a Ph.D. program in Machine Learning with
+a sizable data science component. It is investing in a \$375 million, 21-story, 750,000+ sq. ft.
+building (termed Coda) devoted to data science and high performance computing, along
+with a 80,000 sq. ft. data center to host large-scale computing and data repositories.
+Planned for early 2019 occupancy, the building will be equally shared by Georgia Tech
+and relevant data science industry, promoting academia-industry interaction. The TRIAD
+institute will be administratively structured within IDEaS (led by co-PIs Aluru and Randall),
+enabling it to benefit from staff, infrastructure, space, and other resources provided
+through IDEaS, amplifying the impact of TRIPODS Phase I funding.
+
+Georgia Tech has established itself as a national leader in the data sciences. Since 2015, it is serving as the collaborative-lead institution for the NSF South Big Data Regional Innovation Hub (led by co-PI Aluru),  one of four such Hubs established to serve the nation.
+In this role, it supports regional and
+national-scale efforts in research, industry adoption, and training activities across 16 Southern
+states from Delaware to Texas, and Washington D.C. The Hub has over 150 partner organizations drawn from academia, industry, government labs, and non-profits. TRIAD team members have been at the
+forefront of the data science revolution, involved in the
+White House, NITRID, NSF, NIH, DOE, and DARPA big data initiatives, as well as funding from key programs such as NSF Bigdata, NIH BD2K, and DARPA XDATA.
+
+
+%{\it ** We refer to Section~?? for more information on the (future) interaction between IDEaS and TRIAD.}
+%{\it Either here, or later in Section 4, we mention that there exist multiple programs on campus that facilitate interdisciplinary education and research; this is  a strong signal that several members of SOM, CS/COC,  ISYE (and the Business School) already interact closely with each other: Examples include (besides IDEaS) research centers such as ARC, ML@GT, GT-MAP, and educational programs such as a PhD in ACO, CSE, Bioinformatics, QBIoS and ML, and Masters in QCF and Statistics. **}
+
+%{\it Our location.}
+Georgia Tech is located in Atlanta, the eighth largest economy in the nation and third among
+cities with the most Fortune 500 companies~\cite{geolounge2016}. With the world's busiest airport
+and single-hop reachability to many destinations that Atlanta provides, Georgia Tech is
+uniquely positioned to serve meeting needs of the research community such as workshops and short courses. The proposed TRIAD institute aligns with the university's strategic plan, is synergistic
+with many new initiatives, and will be housed in the new Coda building alongside IDEaS and the South Hub.
+\vspace*{-1em}
+
+\section{Research Programs -- XH: Need to work on this...}
+\label{sec:proposed}
+%The research program will be run with oversight from the  {\bf Updated to be consistent with leadership language}
+%{\bf Executive Leadership Team}, (consisting of the Center Director, the Theme Leads in Theoretical Computer Science, Mathematics, Statistics and Data Science) and a {\bf Scientific Advisory Board}.  (See Section~\ref{sec:leadership}.)
+
+
+We propose research activities along four major threads.
+{\it Transcribing data with new models and mathematics} ({\bf Section~\ref{sec:multi-modal}}), integrates cutting edge data-analysis techniques with dynamical modeling methodologies.
+{\it New paradigms of inference} take into account de-centralized data and scalability of the corresponding algorithms ({\bf Section~\ref{sec:sub-decentralized}}).
+{\it Efficient strategies with theoretical guarantees} are needed for both statistical efficiency and computational complexity, exploiting the combined perspectives of statistics, optimization, and numerical methods ({\bf Section~\ref{sec:sub-randomization}}).
+{\it Connections between foundations of data science with its applications in engineering, industry, biology, and other domains} ({\bf Section~\ref{sec:applications}}) enhances our arsenal of approaches with practical relevance.
+Interdisciplinary collaboration between theoretical computer science, mathematics, and statistics is necessary to achieve significant progress in all four threads.
+
+%REMOVING TO AVOID REDUNDANDY; ALREADY STATED IN THE INTRODUCTION
+%The proposed threads come naturally by considering the answers to two queries:
+%(Q1) how the data arrives and (Q2) how one processes/analyzes the data.
+% and both present and apply our results.
+%For Q1 we study new models with new mathematical structure (thread 1), with the requirement of de-centralized inference (thread 2).
+%Answers to Q2 lead to scalability (thread 2), efficient algorithms with rigorous guarantees (thread 3), and applications (thread 4). Finally, applications inspire the first two threads, completing the loop.
+
+%\subsection{Transcribing data with new models and mathematics}
+
+\vspace*{-1em}
+\subsection{Modeling the devil in the data: data-inspired mathematical analyses}
+%% BETTER TITLE needed??
+\label{sec:multi-modal}
+
+Data-driven modeling and dynamics, including stochastic dynamical approaches, is naturally connected to optimization and statistical inference, driving transformative changes across  both  application-specific settings, as well as generating new foundational principles \cite{brunton2016discovering, michopoulos2003design, peherstorfer2015online, kang2015path}.
+%It is imperative to connect applied and foundational efforts, as well as connecting across the different foundational areas.
+Advances in foundations will promote valid and efficient methods across a huge range of approaches including  reduced order modeling plus sparse sampling techniques, model-constrained optimization, as well as equation-free and multiple scale perspectives.
+Transdisciplinary foundational connections generate effective measures for model/parameter identification and validation, guiding feedback between modeling and data for  model ``learning'' in complex
+and uncertain contexts.
+Stochastic and statistical methods, together with the use of random structures, allow for distributional approaches that avoid over-specified, inflexible,  over-sensitive, or over-fit models.  %Different model types and structures must be explored, and efficient algorithms for analyzing these models must be used.
+%Ties to specific applications (discussed below) will ensure application-relevant exploration of the foundation.
+%We have experts that connect across different disciplines, to bring both aspects of mathematical and statistical/stochastic foundations as well as relevance for applications. We also propose to develop new connections. We outline several specific problems below.\\
+
+{\it Dynamical stochastic modeling and stochastic optimization:}
+A combination of dynamics, stochastics, and optimization is critical in data-driven mapping of large datasets onto large scale ``full" models, reduced order, or statistical models. %Connection with applications requires understanding of data or model error and impact of model selection.
+Optimization combined with forward modeling gives new algorithms for faster model identification and reduced model error.  However, in applications with large scale and data errors, powerful ideas {\it beyond the existing theory} are required.  New algorithms connecting  scalable statistical methods (Section~\ref{sec:sub-decentralized}) and computations (forward problems), e.g., in stochastic PDE-constrained optimization,  exploit the model's and data's  structures together with the dynamics of the algorithm, for improved efficiency that address large problems \cite{zhilong2016uncertainty}.  New techniques  developed in specific application areas need to be  generalized at a foundational level for large classes of problems.
+%(explore New connections across Math, CSE, ECE)
+
+%%%%%
+{\it Data inspired random matrix analysis and algorithms:}  Large datasets generated through text classification and stock data appear generally in empirical covariance matrices (\cite{koltchinskii2015normal,koltchinskii2014asymptotics,karoui2008spectrum,marvcenko1967distribution,
+bai2010spectral,ledoit2015spectrum,ledoit2011eigenvectors}).
+The delicate estimation of the spectrum of the covariance matrix for the (noisy) model
+exposes  underlying structures of the (noisy) model.  While PCA works reasonably well for the top eigenvalues, new techniques in estimating the whole spectrum (as well as the eigenvectors) are needed, particularly when the spectrum is continuous.   We plan approaches based on highly nontrivial optimization procedures that generate efficient and practical algorithms, paving the road for more generalizations beyond covariance structures. Another topic related to Section 2.2 is understanding large structures using local structures that lead to universal objects usually in some limit, as in the quintessential examples of the central limit theorem, eigenvalue distributions of random matrices, longest common subsequences, and coagulation/fragmentation processes.
+
+{\it Predictive Analytics of Massive Streaming Data:}
+%great name for a rock band - Massive Screaming Dataheads? :)
+Semantically rich streaming graph data captures the changing relationships in social networks, financial transactions, communication, and data transfers.
+Keeping up with real-time changing situations requires rapidly analyzing detecting, and predicting unusual behavior in these rich and inter-related datasets. Current methods build models based on investigation of historical data, but
+adapting to new behavior by re-analyzing old data introduces a delay in response.
+We have novel methods for high-performance analysis of this rich, streaming graph data,  providing results as the data changes rather than waiting for forensic analysis.
+%{\bf (some references in bibtex format from Richard Peng and others would help here.)}
+Using our streaming graph framework, STINGER, we can move beyond current approaches to rapidly update quantitatively predictive metrics, forecasting behavior and tracking the quality of past predictions. Rapid feedback assists both analysts and applications reacting to changing situations.
+
+
+{\it Dynamic network modeling:}
+Real life network data  must be connected to key questions in network evolution exposing the  influence of topology (structure), interactions, and  individual dynamics, reception, and transmission properties of the network elements \cite{afraimovich2007dynamical,bakhtin2011optimal}.
+Furthermore, many real life networks are dynamic -  e.g., brain function plasticity \cite{gerstner2002spiking}, immune system development and function, and close proximity contacts in disease transmission \cite{vickisubtransmission} - with short time scales of activity of the individual nodes, so that few of the foundational tools for static networks extend to them. Studying disease transmission requires connecting massive datasets with intrahost networks, social/population networks,  and cross-immunoreactivity networks \cite{skums2015antigenic} and advanced nonlinear stochastic dynamics.
+Efficient algorithms for model and parameter selection will rely on dynamics connected to new compression, optimization,  matrix analysis and efficient statistical measures.
+Other analyses seek reduced networks  approximating the fundamental characteristics of the whole network, connecting statistical inference and scalability with recently validated isospectral transformations \cite{bunimovich2014isospectral}.
+
+
+%4) Data-driven stochastic modeling for immunology and epidemiology:
+
+
+%%% PERHAPS MOVE THIS to applications, if space permits...
+%%%
+%(Optional) Future explorations include connections with existing groups at CDC, Emory and Georgia Tech. Collaborators at Stockholm University built a system of bioreactors to simulate the human gut microbiome, and together with SP Howard Weiss, plans are underway for a combined experimental (population dynamics, genomics, proteomics, etc.) and network modeling approach to studying the dynamics of the gut microbiome as it is disturbed by antibiotics.
+%within Quantitative Bioscience and computational biochemistry, with impacts for the
+%feedback between models and experiments in biochemical reaction networks and interacting populations.
+
+%%%%%%
+
+{\it Other connections to computation, modeling, and applications}.
+We mention briefly additional fundamental areas of mathematics and computations in the expertise of the TRIAD team, beyond those mentioned in the rest of Section 2.  {\it Nonlinear algebraic methods} view
+models geometrically as algebraic varieties or analytic manifolds, so that optimizing model selection via a natural distance function from the data to these varieties.
+{\it Persistent homology} is at the core of Topological data analysis (TDA) \cite{carlsson2009topology,carlsson2009theory}.  Emerging topics of multi-parameter persistent homology  hold promise for issues arising in sampling from moduli spaces.
+{\it Image restoration, enhancement, segmentation and compression} are advancing through connections with random structures and optimization intersecting with sensor data, optimal path planning, and segmentation, and connecting to a range of topics in computer science, optimization, computer vision, as well as specific application areas \cite{yashtini2016fast,sandberg2010unsupervised,ha2010image}.
+
+
+
+
+
+%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%{\bf The following needs editing and might fit better in Section 2.3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%[from TCS]
+%Constructing discrete objects:
+%When studying various objects (databases, graphs, etc.) with notable characteristics, it can be useful to construct random structures with the same salient features.
+%Notable examples include graphs with a given degree sequence, contingency tables, etc.
+%In most cases these problems have been studied in their ``exact'' form, where random samples must meet specific criteria.
+%We propose to study the approximate versions of these problems, where given degrees (or row, column sums) are upper bounds, or we are looking for graphs (tables) whose degrees (row sums) are close to the given values.
+
+
+%The construction of discrete objects using the synergy of probabilistic methods, numerical analysis, and combinatorics. Recent works (BSS, MSS, AO) motivated by the de-randomized construction of graph sparsifiers demonstrated a variety of problems in combinatorics and approximation algorithms can be constructed using numerically oriented potential functions. They let to progress on such as solution to the Kadison-Singer problem, approximation algorithms for traveling salesman, and more recently allocation strategies for indivisible items (ITSC 17 paper on this: https://arxiv.org/abs/1609.07056, and I think Vijay and Tung are also working on this). Such potentials in turn draw upon ideas such as matching polynomials: evaluating them are directly related to counting problems, but currently takes exponential time (Michael Cohen has one exception: https://arxiv.org/abs/1604.03544). Algorithmically investigating whether approximate counting can be combined with these may lead to polynomial time algorithms, and in turn lead to progress on a variety of important algorithmic questions. Such approaches also give new leads towards well studied questions in combinatorics and functional analysis such as the Koml\'os conjecture and embeddability of Banach spaces.
+
+
+%[from TCS]
+%Random walks from combinatorial, statistical, and operator perspectives.
+%Connections between random walks on undirected graphs, electrical networks, and positive-semidefinite linear systems such as graph Laplacians have motivated many works. This approach can be extended to other walks such as those on directed (irreversible) Markov chains, walks in high dimensional polytopes (used in volume estimation), and walks on exponential state spaces (spin systems). For most of these random walks, instead of directly borrowing the notion of condition number from numerical analysis, many of the tools need to be redeveloped. For directed random walks, recent works (stuff involving Richard and Anup: https://arxiv.org/abs/1611.00755,  https://arxiv.org/abs/1608.03270) that started to define spectral graph theory-like operators, but the theory is off by poly(n) factors, and nowhere near the precision of undirected spectral graph theory. For polytopes, there has been work (Santosh \& Yintat https://arxiv.org/abs/1606.04696, Nisheeth \& Sushant https://arxiv.org/abs/1508.01977) on analyzing the Dinkin walk, and it may be the case that tools from continuous differential geometry and functional analysis will be useful (e.g., the discretization of Cheeger's and Buser's inequalities).
+
+
+\vspace*{-1em}
+
+\subsection{New paradigm of inference: decentralized and scalable}
+\label{sec:sub-decentralized}
+
+
+Technological advances in sensing, data storage, robotics, and computing have led to a rapid proliferation of large-scale and distributed data, calling for novel statistical and computational approaches -- techniques that enable groups of distributed and mobile platforms to reconstruct signals, estimate parameters, navigate tricky geometries, and make decisions with little to no intervention from a distant central controller, commonly with limited communication capacity.
+On the other hand, existing statistical inference theory was developed more than half a century ago when data was more manageable in size.  Consequently it is mostly separated from the contemporary development of applied math (including optimization), pure math (e.g., topological structure and algebraic geometry), and efficient randomization and other novel algorithmic techniques from theoretical computer science.
+%Many data science problems require tools from multiple disciplines: for example, statistics to determine the objective function, followed by an optimization solver. Existing solutions tend to be ad-hoc, instead of coherent.
+%We propose to study algorithms, strategies, and principles in {\bf distributable and/or scalable statistical inference}.
+%The objectives are two-fold: design and study algorithms that can do inference when data are distributed at different locations and cannot be assembled in a central location; design and study statistical inference methods that are scalable with large size data, taking into account the modern implementation framework, such as parallelization and the interplay between the computation and communication (either communication between CPU with disk, or communication across nodes).
+Our objectives in algorithms, strategies, and principles in {\bf distributable and/or scalable statistical inference}
+are to design and study i) inference algorithms handling data distributed at different locations, not assembled in a central location; and ii) statistical inference methods that are scalable with large size data, taking into account the modern implementation framework, such as parallelization and the interplay between the computation and  CPU/disk/inter-nodal communication. We seek practical models, statistical theory, and computationally efficient and provably correct algorithms that can help scientists to conduct more effective distributed and/or scalable data analysis.
+
+{\it Motivation for distributed inference in data science.}
+In many  contemporary applications,  the volume of  data streams makes it unrealistic to store all the data in a centralized location,  so that data are often partitioned across multiple servers. Examples include search engine companies with data coming  from a large number of locations and each collecting terabytes of data~\cite{Corbett-et-al2012}, and high volumes of data (like videos) that must be stored distributively~\cite{Mitra-et-al2011}. The societal impact of effectively solving distributed inference is vast and applicable to many scenarios -- cost and volume to transfer data across a major supply chain company or superstore giant;  public health surveillance, such as undertaken by the CDC, where it is a challenge to provide a warning system limiting false alarms, and potential benefits of using health data from hospitals across the nation, restricted by privacy, legal, and propriety concerns.
+% (ref to 2.3)
+%{\bf Remove - repetitive? The aggregated inference tools for distributed data are needed in many contemporary applications, in particular where colossal amount of information is scattered over a network with finite bandwidth.}
+%{\it Motivation for distributed inference in data science.}
+%In many important contemporary applications, data are often partitioned across multiple servers.
+%For example, a search engine company may have data coming from a large number of locations, and each location collects terabytes of data per day \cite{Corbett-et-al2012}.
+%On a different setting, high volume of data (like videos) have to be stored distributively, instead of on a centralized server \cite{Mitra-et-al2011}.
+%Given the volume of contemporary data streams, it is becoming more unrealistic to store all the data in a centralized location.
+%%; as a consequence, it is often the case that centralized methods are no longer possible to implement.
+%It has also been observed by various researchers (e.g., \cite{jaggi2014communication}) that the speed of local processors can be a thousand times faster than the rate of data transmission in a modern network.
+%As a result, it is evidently advantageous to develop communication-efficient distributed methods, instead of transmitting data to a central location and then apply a global estimator.
+%
+%{\it Applications.}
+%Distributed data that call for aggregated inference can play an increasingly significant role in a modern society:
+%\begin{packed_item}
+%
+%%\item An international organization may have information stored all over the world, while between different world offices, there are limited communication and data sharing bandwidth.
+%
+%\item A major supply chain company (or a superstore giant) has collected tremendous amounts of information at many different locations, and it can be costly and unrealistic to transfer them to a common storage unit.
+%
+%%\item A government may have enormous quantities of information saved across different agencies and locations; sharing these data require substantial political and/or administrative struggle.
+%
+%\item In public health surveillance, the Centers for Disease Control and Prevention (CDC) have a tremendous volume of potentially useful data across VA hospitals and city/county/state agencies; creating a warning system with few false alarms is a challenge.
+%
+%\item Hospitals across the nation (or even worldwide) have enormous amount of health and/or disease related data. They all want to build some predictive models, however sharing the data is largely deterred due to privacy, legal and proprietary concerns.
+%
+%\end{packed_item}
+There are many forces at play here keeping data distributed:
+(1) Scale: difficulties to manipulate on a single machine,
+(2) Communication cost: data transfers being costly,
+(3) Privacy: transfer causes privacy concerns, and
+(4) Security: reduce risks of loss.
+These factors provide strong motivation for our planned research focus in developing theoretical foundations for distributed and/or scalable statistical inference.
+
+
+{\it Motivation for scalable methods in both computing and inference}.
+It is now widely recognized that data access and communication costs dominate computational
+costs, and technological trends indicate the gap is expected to worsen further.
+Hence, algorithms must be designed to minimize communication costs,
+%The latter comes from moving data between levels of a memory hierarchy or processors over a network.
+%Communication costs (measured in time or energy per operation) already greatly exceed arithmetic costs, and the gap is growing over time following technological trends.
+%It is desirable to design algorithms that minimize communication.
+%On the theoretical front, it is critical to study algorithms that can attain provable lower bounds on communication.
+measured in time or energy as appropriate. Theoretical study of these algorithms provides
+provable lower bounds on communication. Second, massive benefits to statistical inference
+would be realized  with algorithms that integrate statistical, optimization and
+computational perspectives, rather than commonly used off-the-shelf optimization
+(see Section 2.3). Statistically and computationally optimal inference  requires
+improved understanding of, and adaptability to, the underlying probabilistic (specifically random matrices) and geometric ``structures'' of high-dimensional data.
+Team member expertise includes adaptation to sparsity in statistical models with high-dimensional vector-valued parameters (such as linear regression), to low-rank structures in matrix models (such as trace regression), and to the underlying combinatorial structures in statistical models of large networks, all featured in Section 2.1.
+These methods rely on complexity penalization and other model selection tools that support adaptation to the underlying structures and are often based on convex optimization.
+Tight probabilistic bounds on the risk of the resulting estimators show their optimality and adaptivity, complemented by their distributional properties.  Planned {\it Research Outcomes include:}
+
+{\em 1) Theoretical Guarantees} of distributed and scalable statistical estimation, see e.g., \cite{HuangHuo2015onestep};
+
+{\em 2) New Computation-and-Communication-Efficient Distributed Statistical Methods},
+taking advantage of existing literature and adapting existing statistical techniques,
+to get theoretically supported computation-and-communication-efficient distributed statistical estimators;
+
+{\em 3) Software to support reproducibility},  available in open-source along with related documentation, together
+with developing  a comprehensive validation plan  with alternatives;
+
+{\em 4) Experimental Studies}  using extensive simulations to evaluate the properties of
+the resulting estimators in finite-sample cases, on both synthetic data and real datasets;
+comparison with other existing state-of-the-art methods will be made;
+
+{\em 5) Applications.} We will explore/demonstrate the applicability and need of our methods in applications including
+collaborations with local large corporations, such as UPS, Home Depot, Delta Airlines, etc., who have distributed data and would like to perform several types of aggregated inference, developing candidate prototypical applications for testing and improving new methods. Georgia Tech already has close relationship with these companies, including
+some of the company innovation centers located on campus.
+
+
+
+%\noindent
+%\begin{packed_item}
+%\item {\em Theoretical Guarantees} of distributed and scalable statistical estimation, see e.g., \cite{HuangHuo2015onestep};
+%
+%\item {\em New Computation-and-Communication-Efficient Distributed Statistical Methods},
+%    taking advantage of existing literature and adapting existing statistical techniques,
+%    to get theoretically supported computation-and-communication-efficient distributed statistical estimators;
+%
+%\item {\em Software to support reproducibility},  available in open-source along with related documentation, together
+%with developing  a comprehensive validation plan  with alternatives;
+%
+%\item {\em Experimental Studies}  using extensive simulations to evaluate the properties of
+%    the resulting estimators in finite-sample cases, on both synthetic data and real datasets;
+%    comparison with other existing state-of-the-art methods will be made;
+%
+%\item {\em Applications.} We will explore/demonstrate the applicability and need of our methods in applications including
+%    collaborations with local large corporations, such as UPS, Home Depot, Delta Airlines, etc., who have distributed data and would like to perform several types of aggregated inference, developing candidate prototypical applications for testing and improving new methods. Georgia Tech already has close relationship with these companies, including
+%    some of the company innovation centers located on campus.
+% \end{packed_item}
+
+
+
+
+%------------------------------------------------------------------------------------
+
+\vspace*{-1.5em}
+\subsection{Optimization algorithms for inference and learning}
+\label{sec:sub-randomization}
+
+
+Since its beginning, optimization has been recognized as a vital tool to transform raw data into
+useful knowledge to support decision-making. A variety of
+data analysis methods, from classical linear regression and
+maximum likelihood estimation, to the more recent support vector machine~\cite{Vap95,Vap98,VaLe63-1},
+total variation minimization~\cite{RuOsFa92-1}, metric learning~\cite{Xing02distancemetric},
+compressed sensing~\cite{CanRomTao06-1,Donoho06-1} and
+matrix completion~\cite{CaRe08-1,CaTao09-1,ReFaPa07-1}, are built upon optimization.
+Our research efforts in this domain will fall into two main categories: overcoming the challenges to optimization algorithms posed by modern datasets, and using convex optimization as a tool for statistical inference algorithms with provably near-optimal performance guarantees.
+
+\medskip
+
+\noindent
+{\bf Optimization for modern data.}
+%If the dataset is relatively small, these models can be routinely
+%solved by the off-the-shelf solvers, e.g., those based on interior point methods
+Models with relatively small datasets  can be routinely
+solved by off-the-shelf solvers, e.g., those based on interior point methods
+(IPM) (see, e.g., monographs \cite{BenNem00,BoGhFeBa94,BoydVand04,NeNe94,Renegar01,RooSTerVi97,
+SaVaWo00,Vanderbei07,Wri97,Ye97} and the recent survey~\cite{NemTod08-1}).
+However, as discussed in Section 2.2, the unprecedented growth in the size of datasets has
+presented significant challenges to the design of optimization algorithms.
+
+1) {\it High dimensionality:} Optimization problems from large-scale data analysis usually have
+a design dimension (number of variables) of $n \approx 10^4$ or more. For example,
+in image processing, $n$ (number of pixels) can easily
+exceed $10^6$. In another interesting matrix completion example by Netflix, $n$
+(number of unknown reviews) can be as high as $8.6 \times 10^9$.
+For these values of $n$, the cost of an IPM iteration,
+being at least quadratic in $n$, becomes prohibitively large.
+
+2) {\it Data uncertainty:} Datasets are often viewed as random samples from a
+certain unknown distribution. To account for such uncertainty, stochastic programming (SP) has been
+widely used in data analysis. However, traditional SP solution approaches need to scan the entire dataset during each iteration, impractical for big datasets~\cite{UCI12}.
+%
+%From old proposal:
+%(b) making optimization algorithms robust to uncertainty, and
+%(c) providing robust guarantees when the input is only partially specified or uncertain.
+
+%3) \underline{Structural ambiguity:}
+%For convex programming (CP) models, it becomes difficult to extract
+%global, structural information from big datasets, e.g., smoothness and regularity parameters, while
+%these parameters are very important in current CP approaches.
+3) {\it Structural ambiguity:}
+For convex programming models, it becomes difficult to extract
+global, structural information from big datasets, e.g., smoothness and regularity parameters, are important but difficult
+to extract in current convex programming approaches.
+In some cases, we do not even know if the model is convex, and all
+we have is a large collection of simulated objective values,
+e.g., in bandit learning~\cite{BerVal08-1} and nonparametric regression~\cite{Dippon03-1}.
+
+4) {\it Distributed data and computation:} As discussed in Section 2.2, traditional
+central data collection requires agents to submit their private data to
+a central provider with little control on how the data will be used and potentially
+incur high set-up/transmission costs. Decentralized optimization provides a viable
+approach to deal with these data privacy related issues.
+Another line of research stems from the assumption of sequential execution in
+traditional  large-scale optimization shifting to distributed (parallelized, asynchronous) optimization, while also accounting for communication costs, gives rise to, e.g.,  identifying ``parallelization and communication friendly'' structures of convex optimization models along with related algorithmic design and complexity analysis, investigating and achieving limits of performance on various classes of distributed optimization models.
+
+5) {\it Online computation:} Real-time inference and decisions demand that  optimization for inference is integrated directly into the data pipeline. Then ``dynamic'' optimization is needed,  often approached as minimizing regret  \cite{hazan15in,shalevshwartz11on}, together with the requirement that algorithms update in a provably efficient manner.
+
+
+6) {\it Randomized optimization algorithms:}
+Many recent developments in randomized algorithms, providing provably efficient optimization routines, were motivated by
+specialized problems such as low rank approximations~\cite{Woodruff14,KannanVW14}
+and combinatorial flows~\cite{Teng10,Madry13,KoutisMP10:journal}.
+Their generalizations led to new ways of randomizing and accelerating
+core optimization tools such as accelerated gradient descent~\cite{LeeS13},
+mirror descent~\cite{AllenzhuO15},
+and second-order optimization methods~\cite{LeeS14}.
+%We are interested in combining the different perspectives on randomized
+Combined perspectives for randomized
+optimization routines from different areas,
+such as Gibbs sampling, stochastic gradient descent, and randomized pre-conditioners
+ can lead to improved randomized optimization algorithms for general use.
+%optimization routines in different areas that are fundamentally similar,
+%such as Gibbs sampling, stochastic gradient descent, and randomized pre-conditioners.
+%Combining such perspectives can lead to improved randomized optimization
+%algorithms for many objectives (graphs/tensors/general matrices),
+%and under various models of computation and analysis.
+
+\medskip
+
+%\noindent
+%{\color{red}\em jrom: The phrase ``statistical inferences'' (instead of, for example, ``techniques for statistical inference'') is new to me, but it does have its charm ...}
+
+\noindent
+{\bf Statistical Inference via Convex Optimization. }
+%Traditionally, the primary role of optimization in statistics is the numerical processing of inferences.  Computing a maximum likelihood estimate (MLE), for example, often amounts to optimizing an appropriate criterion.  In these classical applications, optimization is used solely for ``number crunching'' and has nothing to do with the motivation and analysis of statistical performance of the inferences in question.
+%
+%Optimization as a discipline, however, is about much more than number crunching -- it offers powerful modeling and analysis tools (convex analysis, conic programming, duality), which can be used to design statistical inferences which are provably near-optimal in a certain precise sense, both asymptotically and on a given finite ``observation horizon."  Convex optimization in particular has a rich global theory, and ``built in" computational tractability.  As a result, whenever a statistical inference reduces to convex optimization, the inference can be implemented numerically in an efficient and scalable fashion.
+ Section 2.2 motivates the combination of optimization as a discipline with statistical inference to obtain provably near-optimal results. This is in sharp contrast to the traditional use of optimization as a ``number crunching'' tool for realizing a statistical estimates.  For example, reducing statistical inference to convex optimization exploits its built in computational tractability, so that the inference can be implemented numerically in an efficient and scalable fashion.
+Examples include denoising signals of unknown local structure \cite{JN2009A,JN2010,HJNO2015,OHJN2016}, hypothesis testing \cite{Burnashev1982,GJN2015,sequential,JuNemAffineDetectors}, change point detection \cite{Burnashev1979,JN2015,ChangePoint}, estimating linear, linear-fractional and quadratic forms \cite{Don94,JN2009,linquadforms} and signal recovery \cite{CT1A,CT1,DonC1,DonC2,l2estimation} from indirect observations.
+Under rather general structural assumptions on the observed data, these inferences and their risk  are computed efficiently,  in sharp contrast to traditional high-dimensional and non-parametric statistics on near-optimal inferences and risks presented in closed analytic form, with severe restrictions from the viewpoint of applications. Besides  further bridging statistics and optimization with applications to sparsity-oriented signal recovery, signal processing in Gaussian observation schemes, Poisson and quantum imaging, change point detection, and many more, we also seek convex relaxations for inherently nonconvex inference problems.  Prominent examples include linear inverse problems with sparsity \cite{DonC1,candes06st,candes08in} and low-rank constraints \cite{ReFaPa07-1,CaTao09-1,davenport16ov}, and recent  {\em nonlinear} inverse problems contexts including  phase retrieval  \cite{bahmani16ph}, and structural regularization  \cite{bahmani17an}.
+Convex geometry plays a fundamental role in creating and analyzing fast algorithms for learning certain properties of unknown distributions \cite{rademacher_vempala_2004, vempala_jacm_2010, vempala_2010,vempala_2001},  complementing classical techniques of probability and statistics, with methods and results from convexity theory, such as Dvoretzky theorem, estimates on the marginals of log-concave distributions, and Brunn-Minkowski theory.
+
+\medskip
+
+\noindent
+{\bf Deep learning as a Tool for Algorithm Design.}
+As illustrated above, many large scale data analytics problems are intrinsically hard and complex, making the design of effective and scalable algorithms very challenging. Domain experts have to perform extensive research, and experiment with many trial-and-errors, in order to craft approximation or heuristic schemes that meet the dual goals of effectiveness and scalability \cite{DaiDaiSon16, DaiDaiZhaLietal17}.
+Very often, restricted assumptions about the data need to be made in order for the designed algorithms to work and obtain performance guarantees.
+Regardless, previous algorithm design paradigms seldom systematically exploit a common trait of real-world problems: instances of the same type of problem are solved repeatedly on a regular basis, differing only in their data \cite{DaiWanTriSon16, DuDaiTriEtal16}.
+We will aim to develop a deep learning framework for scalable algorithm design based on the idea of embedding steps of an algorithm  into nonlinear spaces, and learn these embedded algorithms from problem instances via direct supervision or reinforcement learning (see \cite{LiuWenYuLietal17, KhaBodSonNemDil16} for current work). In contrast to traditional algorithm design where every step in an algorithm is prescribed by experts, the embedding design will delegate some difficult algorithm choices to deep learning models so as to avoid either large memory requirement, restricted assumption on the data, or limited design space exploration. We will develop efficient procedures to train such embedded algorithms as well as study the theoretical properties of such new (algorithm) design paradigm using concepts such as pseudo-dimensions of the embedded algorithms.  Furthermore, we will demonstrate the usefulness of the new  paradigm on real world data analytics problems, such as materials discovery problems, social recommendation problems, and combinatorial problems such as vehicle routing and set cover problems.
+
+%Nearly optimal statistical inferences based on convex optimization are known for denoising signals of unknown local structure \cite{JN2009A,JN2010,HJNO2015,OHJN2016}, hypothesis testing \cite{Burnashev1982,GJN2015,sequential,JuNemAffineDetectors}, change point detection \cite{Burnashev1979,JN2015,ChangePoint}, estimating linear, linear-fractional and quadratic forms \cite{Don94,JN2009,linquadforms} and signal recovery \cite{CT1A,CT1,DonC1,DonC2,l2estimation} from indirect observations, and for several other generic statistical problems.
+%%
+%An attractive characteristic of these inferences is that under rather general structural assumptions on the observed data, both the inference and its risk (guaranteed to be near-optimal under the circumstances) are computed efficiently.
+%This is in sharp contrast with the emphasis of traditional high-dimensional and non-parametric statistics on near-optimal inferences and risks presented in closed analytic form, which is possible only under highly restrictive, from the viewpoint of applications, assumptions on the situation.
+%
+%One of our research thrusts is to further bridge statistics and optimization along the outlined research avenue, with applications to sparsity-oriented signal recovery, signal processing in Gaussian observation schemes, Poisson and quantum imaging, change point detection, and many more.
+%
+%Another thrust will be frameworks for finding convex relaxations for inherently nonconvex inference problems.  A prominent example of work in this domain are the well-known relaxations for solving linear inverse problems with sparsity \cite{DonC1,candes06st,candes08in} and low-rank constraints \cite{ReFaPa07-1,CaTao09-1,davenport16ov}.  There is very recent activity on the problem of solving {\em nonlinear} inverse problems by relaxing them into convex programs; the special case of phase retrieval was treated in \cite{bahmani16ph}, and more general systems with structural regularization are explored in \cite{bahmani17an}.  Ongoing work in this domain is focused on adapting the theoretical guarantees for the types of systems that are encountered in common statistical learning problems.
+%
+%We also envision convex geometry playing a fundamental role in creating and analyzing fast algorithms for learning certain properties of unknown distributions \cite{rademacher_vempala_2004, vempala_jacm_2010, vempala_2010,vempala_2001}.  In addition to the classical techniques used in probability and statistics, such as discretization, net arguments, and couplings, our projects will exploit methods and results from convexity theory, such as Dvoretzky theorem, estimates on the marginals of log-concave distributions, and Brunn-Minkowski theory.
+%
+%{\bf the following need some work to integrate.}
+%The workhorse of nonlinear algebra \cite{cox1992ideals} is powerful solvers for systems of polynomial equations.
+%Equipped with those, a larger range of natural models are available to practitioners.
+%For example, if a nonlinear graphical model is a natural choice to employ in statistical inference for a given problem, there is no immediate necessity to linearize the model.
+%The modern nonlinear solvers are capable of handling problems with billions of solutions \cite{grayson2002macaulay,verschelde1999algorithm,bates2006bertini}.
+%The rapid progress in this technology is warranted by scalability of some of the methods involved, such as numerical homotopy continuation \cite{morgan2009solving,sommese2005numerical,leykin2006newton}.
+%Indeed, the light communication overhead and independence of atomic tasks insure that speedups are almost linear for the implementations carried out for parallel and distributed architectures.
+%
+
+
+% I cut these paragraphs because we don't really talk about any of the applications in the first paragraph, and the second paragraph probably goes in the introductory section
+%\noindent
+%{\color{blue}\em This is administrative connective tissue}\\
+%The research collaboration is motivated by several general problems in applied mathematics that touch many different application areas.  Progress on these problems, which include structured matrix factorization and estimation, graph estimation, robust multi-stage decision making and signal recovery, will have direct and lasting impact in applications as diverse as medical imaging, radar array processing, passive acoustic imaging, and digital communications.
+
+%The foundational ideas will integrate multiple disciplines --- operations research, theoretical computer science, signal processing and statistical learning --- with the common goal of fast, robust and versatile convex optimization algorithms. Trading off accuracy for efficiency, the use of randomization, guarantees in the face of uncertain data and new formulations of convex optimization problems for learning, are all promising methods with wide applicability.
+
+%{\it Anticipated participants.}
+%Kuske, Livshyts, Nemirovsky, Romberg, Tetali, Vempala, Pokutta,
+
+
+
+
+
+%------------------------------------------------------------------------------------------------
+
+\vspace*{-1em}
+\subsection{Applications in data science related fields}
+\label{sec:applications}
+
+Symbiotically, data science theory informs new algorithms and methodologies, while the constraints of ``real-world'' applications  define new directions for fundamental exploration.
+Within Georgia Tech the proximity to top researchers integrating inference and learning algorithms to solve real-world problems will  strengthen the impact of our foundational work, finding solutions that address practical barriers.
+
+
+{\it Advanced manufacturing.}
+Modern advancements of sensor technologies, communication networks, and computing power result in dense data-rich environments for manufacturing systems. Foundational data science  supports the integration of massive data readily available throughout product realization with a holistic system-level data fusion approach for effective analysis, design, quality control, and  performance improvement. This requires
+ (i)  handling of rich data streams ;
+(ii) extracting knowledge about the dynamics driving these systems, and
+(iii)  translating this knowledge to enhance design, analysis, and control.
+At the center stage of future engineering research is the integration of theories, tools, and techniques from engineering, statistics, computations and optimization, establishing transformative methodologies for solving engineering problems.  Research in manufacturing systems will follow the same trend, expanding significantly in
+(a)  Data-driven modeling  to capture complexity beyond first-principle based modeling;
+(b)   Integrated design such as design space characterization and high dimensional nonlinear optimization problems critical for product and service realization;
+(c) Expansion of  multistage systems beyond the existing focus on multistage discrete manufacturing processes.
+Methodologies of  \cite{Shij1,Shij2,Shij3,Shij4,Shij5,Shij6,Shij7,WuHamadaBook2009} are particularly relevant to this proposal.
+
+
+
+
+{\it Learning at the Sensor.}
+Data is created at the sensor, where the physical world is translated into digital. The importance of array processing has re-emerged when
+ many elements are spread over large spatial regions, as in radar, seismic exploration, and underwater acoustics, as well as when dense arrays with 100s-1000s of elements packed into a small aperture as in millimeter wave communications and imaging, ultrasonic acoustics, photonics, and neural probes.
+Within the large scale signal processing challenges on these arrays is an opportunity:  the structure emerging with the increased number of variables.  In the service of next-generation array processes,  we focus on these structured matrix or tensor estimation problems, for which there are very few unifying principles, and many fundamental problems left unanswered.  A second area is motivated by the recent surge of attention from the integrated circuits community in highly parallelized computing architectures, where many simple computational processors can be implemented directly at the sensor and run at extraordinarily low power.
+ Both mathematical and implementation points-of-view are needed for algorithms for highly-parallelized architectures that
+ solve the programs in a highly-distributed manner with little to no centralized control,  in contrast to standard distributed optimization literature. The new fundamental results needed in these contexts bridge the fields of optimization, neural nets, and message passing for graphical inference.
+%
+While having some features in common with the problems of Section 2.2 (large datasets distributed over multiple geographic locations),  there are also differences in the decentralized sensor problems,  focusing on small- to medium-sized problems in quick succession.
+
+
+{\it Inferring dynamical properties from biological data.}
+ Innovations in high-throughput
+measurements  across scales enable new inferences about
+interaction from dynamics in biological systems, traditionally studied through dynamic nonlinear forward models.
+ Examples include the relationships
+between gene regulatory networks and gene expression, ecological community
+network structure and ecosystem resilience, and social network structure
+and the spread of infectious disease. As discussed in Section 2.1, these inferences are based in inverse problems   integrating dynamic, statistical, and optimization approaches
+with massive datasets.  Prominent examples include sequencing approaches to
+infer species interactions in a high-diversity microbiome \cite{Stein-Ecological}, viral parasites of microbial cells \cite{Jover-Inferring-Phage}, and transmission of influenza during airplane flights \cite{vickisubtransmission}. Iterative use of
+model-based inference has the potential to open new opportunities for
+understanding and control.
+
+
+
+\vspace*{-1em}
+
+
+\section{Institute Activities and Community Involvement}
+The key goal of TRIAD institute is to not only establish a research program in the focus
+areas at the foundations of data science described earlier, but also nurture and grow a
+vibrant nationwide community around them, as well as undertake activities for community
+benefit and training. Georgia Tech's excellent reputation and its established research and
+educational programs in statistics, theoretical computer science (TCS), and mathematics,
+along with our vast networks of existing collaborations, will help accomplish this goal.
+
+
+%We describe details of our proposed activities below.
+The following activities include workshops,
+innovation labs,
+short-term visitors,
+graduate student and post-doc enabled joint research,
+course development, and
+a lecture series.
+
+
+
+\vspace*{-1em}
+
+\subsection{Innovation Labs/Thinktanks}
+\label{sec:idea-labs}
+We propose to organize innovation labs bringing together researchers from TCS, Math, and Stat, taking into account both applied and foundational perspectives, working together to translate applied questions into foundational questions across all areas.
+The organizers will determine the themes of the innovation labs per the research programs proposed above, and will approach experienced senior researchers in the field with respect to mentoring and supervision.
+We will utilize the {\em Idea Lab} framework that has been developed and experimented successfully in other related proposal-fertilization activities.
+In particular, these innovation labs will take a form similar to study group sessions in industrial problem identification. These events will bring together senior and junior researchers, from different disciplines, to focus on specific data science related questions with the goal of turning the questions into new directions for novel theory and computations, which in turn will advance the foundations of data science.
+The focus areas are based on themes in data science, and the outcomes of the proposed focus activities can then be translated into subsequent collaboration and co-supervision of  PhD and postdoc projects; they will also form the basis for future focused workshops, visitation of external experts, or research proposals.
+%These events will be multi-day intensive workshops, with a lot of interaction that can include also external experts to help lead the problem identification groups.
+Teams in different areas can work in parallel during the innovation labs. Some groups will likely include industry and government contacts.
+
+\medskip
+
+\noindent
+{\bf Experience.}
+Georgia Tech already has excellent examples of generating think-tank activities.
+ARC (Algorithms \& Randomness Center) was founded to create interdisciplinary expertise tackling cross-disciplinary and real-world problems with experts in foundational needs.
+GT-MAP (Georgia Tech Mathematics and Applications Portal) facilitates Mathematics as an effective research partner of the broader community at Georgia Tech, and provides a stable entity where researchers from the campus community can present their work and share ideas.
+%TOOK THIS OUT AS IT WILL MAKE GT-MAP LOOK WEEK.
+%GT-MAP recently began the process of supporting graduate students working on the GT-MAP related research, and anticipate to have post-doctoral fellows in the future.
+
+\vspace*{-1em}
+
+\subsection{Short-term visitation}
+\label{sec:short-term}
+
+During Phase I, we will approach potential researchers who are interested in spending short
+periods of time at TRIAD to help enhance the proposed research.
+Due to budget limitations, we may start with short-term visits, with each researcher staying
+1-4 weeks.  We will proactively seek opportunities for co-hosting, tapping into other resources for joint sponsorship. We will also encourage and host sabbatical visitors to
+fully or partially associate with TRIAD.
+
+
+\vspace*{-1em}
+
+\subsection{Lecture Series in Mathematical Foundations of Data Science}
+\label{sec:lectures}
+
+TRIAD will invite high-profile researchers each year to give a series of lectures related to the foundations of data science. Specific examples of distinguished researchers we plan to
+invite include:
+
+i) Prof. Roman Vershynin (University of Michigan) who has been working for many years on the development of non-asymptotic theory of random matrices and its applications to a number of problems in data science (compressed sensing, covariance estimation, statistics of networks, etc);
+
+ii) Prof. Gabor Lugosi (Pompeu Fabra University, Barcelona, Spain) will be asked to lecture on Elements of Combinatorial Statistics.
+%He is giving lectures on this during July 2017 in the Probability summer school in Saint-Flour, France.
+
+iii) Prof. Boaz Klartag (Tel Aviv University, Israel), an expert in convex geometry and analysis, has agreed to give several lectures for a non-expert audience. Galyna Livshyts and Tetali plan to work with the local colleges and help host the lectures at Spelman college in Atlanta.%Also linking to relevant Colloquia in Math,CS, Engineering, ML etc
+
+The institute will throw open these events to other universities/colleges in the area, e.g., Georgia State University, Emory University, Spelman College, as well as webcast the lectures
+if speakers so permit to reach nationwide audience. Atlanta is home to the largest concentration of colleges and universities in the South, including historically black colleges and universities (HBCUs).
+
+%Selection of the invited speakers will be charged by the Executive Committee that is described in the Collaboration and Evaluation plan.
+%Section \ref{sec:leadership}.
+%the Collaboration and Evaluation Plan.
+
+%\vspace*{-1em}
+%
+%\subsection{Support through present infrastructure}
+%\label{sec:infrastructure}
+%
+%The interdisciplinary research Institute for Data Engineering and Science (IDEaS) at Georgia Tech was conceived to provide a solid backbone integrating theoretical foundations of data science with more applied computational components.
+%IDEaS has begun to seed efforts very well aligned with the TRIPODS program, such as TRIAD.
+%Georgia Tech has a strong tradition of successful collaboration across the institute on the foundations side: the interdisciplinary research center and thinktank ARC is an affiliated center with IDEaS, so is the new Machine Learning Center (ML@GT).% (which was recently promoted to an Interdisciplinary Research Center by the EVPR.
+
+
+
+
+\vspace*{-1em}
+
+\section{Broader Impacts}
+\label{sec:broaderimpact}
+
+\vspace*{-1em}
+
+\subsection{Enabling Interdisciplinary Collaboration}
+One of the main objectives of the cross-disiplinary center will be fostering new collaborations across traditional disciplinary boundaries.  Many of the PIs and senior personnel have strong track records for promoting interdisciplinary research and understand the challenges.  We also have a lot of experience with data science and the effort required to ensure the theroetical questions pursued are of actual practical significance in the application domains.  Educational modules will be integrated into all of TRIAD's activities, such as prefacing all workshops with tutorials and taking extra efforts to enusre their appropriateness for newcomers to various fields.  We will provide means for interdisciplinary groups to have regular contact so that research forms a more solid interdisciplinary foundation.
+
+
+
+
+\subsection{Communications}
+\label{sec:communication}
+An experienced Director of Communications will play a central role in
+ensuring the success of TRIAD. During Phase I, TRIAD will be supported by
+IDEaS communication director Jennifer Salazar. She has a record of success working with researchers on large interdisciplinary and multi-institution projects, possess rich experience leading research-related communication campaigns, digital media, and public relations, and is a talented writer. She will work closely with the Executive Leadership team to establish relationships, and to track achievements both internally and externally.
+Her primary responsibilities will be to proactively remain apprised of important successes, develop a strategic communication plan and %communication
+product calendar, and drive awareness of project progress both internally across the wider team, and externally to the research community, stakeholders, and general public.
+%He or she will also collaborate with the leads of the project to establish and maintain effective outreach mechanisms.
+We expect sustaining planned Phase II activity will require TRIAD hiring or at least
+cost-sharing such a position.
+
+
+
+\vspace*{-1em}
+
+\subsection{Recruiting students and faculty to TRIAD programs}
+\label{sec:recruit}
+
+Georgia Tech's track record with recruiting students to their online and degree programs (e.g., the 25-year old, highly visible, ACO Ph.D. program) assures us that once advertised these courses and programs will be oversubscribed.
+We will advertise on TRIAD web portal and other Georgia Tech websites as we develop new short courses and webinars.
+We will  actively recruit students at large, including underrepresented minorities and women, and faculty from smaller colleges, to participate in our programs and/or apply for graduate fellowships and assistantships.
+%We will send emails to recruit faculty from smaller colleges and community colleges.
+
+\vspace*{-1em}
+\subsection{Interaction with domain experts}
+
+Due to strong presence of engineering programs and local data science industry, we have an efficient and effective interface to application domains.
+Domain experts will be made aware of the developments and advances that theoretical foundations of data sciences have to offer.
+The proposed institute will incorporate deep and frequent interactions between
+theoreticians and domain experts.
+%PT: suppressing the following comment, since what follows conveys the message.
+%Algorithms developed in a vacuum for theoretical purposes only will typically fail to take into account the peculiarities and incompleteness properties of real data; the interactions enabled by TRIAD directly address this issue.
+Success of theoretical foundations of data sciences will strongly depend on connections between statistical accuracy and quality-of-approximation as a tradeoff of various computational constraints that are imposed by
+modern computing infrastructure; The fact that TRIAD will also be co-located with the high-performance computing center will enable such connections.
+
+
+\vspace*{1em}
+\section{Results from prior NSF support}% \label{sec:prior}
+\vspace*{-0.5em}
+
+The PIs are each supported by multiple NSF awards during the prior five years. Some reflect existing collaborative strengths among the PIs and senior personnel.
+We summarize a few.
+\vspace*{0.25em}
+
+\noindent{\bf Xiaoming Huo} is supported by DMS-1613152, and DMS-1106940, Achieving spatial adaptation via inconstant penalization: theory and computational strategies, Aug 2011--July 2014, \$140,000.
+
+{\bf Intellectual Merit.}
+The PI investigated how to achieve adaptive functional estimation when the underlying model has inhomogeneous roughness.
+Publications that were partially enabled by this project include \cite{YangBook2014,Xu-13-pakdd,Kim-12-jns,Bastani-13-TASE,Wang-13-sp,Kim-13-aml,Kim-14-aor,Kim-14-ejs, Kim-14-TASE,Zhang-14,Wang-15-cusum,Huo-15-technometrics,Debraj-12-icdcs,lu-12-TAC,Huo-15-technometrics}.
+
+{\bf Broader Impacts.} Huo disseminated the research through multiple external talks. He trained three female Ph.D. students (one graduated and is now an assistant professor).
+
+\vspace*{0.25em}
+\noindent
+{\bf Srinivas Aluru} has been supported by 11 NSF grants, including 6 from CCF. We report on IIS-1247716/1416259, BIGDATA: Genomes Galore - Core Techniques, Libraries, and Domain Specific Languages for High-Throughput DNA Sequencing, Jan 2013--Dec 2017, \$2,000,000.
+
+{\bf Intellectual Merit:} This project is led by the PI in partnership with Stanford and Virginia Tech. The PI's group developed parallel algorithms for a variety of string and graph based index and data structures prevalent in bioinformatics. The work received multiple recognitions: best student paper (Supercomputing 2015); first selected paper by ACM SIGHPC under the scientific reproducibility initiative; and selection as a benchmark for Student Cluster Competition (Supercomputing 2016).
+
+{\bf Broader Impacts:} Research results are disseminated as software libraries (github.com/ParBLiSS). The PI ran three international workshops to lead community efforts for high-throughput sequence analytics. He also assisted NSF in organizing a U.S.-Japan Big Data PI meeting.
+
+\vspace*{0.25em}
+\noindent
+{\bf Prasad Tetali} was supported by DMS-1407657 (July 2014--June 2018, \$288,000), CCF-1415496 and CCF-1415498 (Mar 2014--Feb 2017, \$600,000).
+
+{\bf Intellectual Merit}.
+The projects funded novel directions in optimal transport and discrete and continuous optimization, inspired by concrete real-world problems \cite{gozlan2015characterization, gozlan2014kantorovich}. The team modeled industrial challenges arising from current-day needs, and identified the precise algorithmic and optimization tools needed to solve the corresponding issues \cite{christensen2017approximation}.
+%The team also developed convex optimization methods that scale with the size of the data and are robust to data uncertainty.
+
+{\bf Broader Impacts}.
+Tetali and team trained six Ph.D. students (one female) and two postdocs, and co-hosted an Industry Day for theoreticians. The team developed a pilot expert system {\em Ask Minmax}, to help non-experts diagnose and identify commonly encountered optimization problems.
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+
+
+\begin{center}
+Schedule
+\end{center}
+
+
+A tentative {\bf schedule} of scientific activities, with plans for Year 1 and a provisional schedule for Years 2 and 3.
+
+[This needs to be developed.]
+
+\clearpage
+
+
+\begin{center}
+Plans for human resource development
+\end{center}
+
+
+{\bf Plans for human resource development}, including the selection and mentoring of a diverse cohort of students and postdoctoral participants, as appropriate, and the selection and involvement of researchers at all career levels.
+
+
+\subsection{Graduate students and Postdocs}
+\label{sec:gra-postdoc}
+
+In Phase I, TRIAD has budgeted two graduate research assistantships and a partially sponsored postdoctoral fellowship.
+We believe that collaboration can be more productive through cross-supervision; the funding will foster cross-collaborations that take a future-looking approach to recruitment and research training.
+
+\medskip
+\noindent
+{\bf Cross-disciplinary graduate/postdoc co-supervision.}
+The graduate research assistantship will support students to be co-advised across academic units on campus.
+Supervisors must commit to be involved in co-supervision.
+Students will work on trans-disciplinary projects.
+The students learn a new field, bring that knowledge/connection back to home group, and bring new expertise to the other sponsoring group.
+Fellows with advanced preparation and degrees will be admitted in a postdoc position.
+The joint advising structure with be similar, with additional responsibilities.
+
+
+Georgia Tech already has several interdisciplinary graduate programs.
+%, such as the cross-campus master programs in statistics, quantitative and computational financed, etc, and cross-unit PhD programs such as Algorithms Randomness and Combinatorics, machine learning, and more.
+A new Ph.D. program in Machine Learning is recently approved and will start running in 2018.
+Another interdisciplinary Ph.D. program that has thrived for 25 years is the Algorithms, Combinatorics and Optimization (ACO) program, run jointly by the schools of mathematics, computer science and industrial and systems engineering, cutting across the Colleges of Sciences, Computing and Engineering.
+TRIAD participants have ample experience with cross-disciplinary training.
+They have a strong track record of mentoring and placement: e.g.,
+Ruta Mehta and Jugal Garg (ARC postdocs, now faculty in CS and OR at UIUC, Illinois),
+Phillipe Rigollet (Math postdoc, now faculty at MIT),
+Will Perkins (NSF postdoc, faculty at Birmingham, U.K., moving to University of Waterloo, Canada),
+Kevin Costello (NSF postdoc, faculty at UC-Riverside);
+the first batch of NSF-funded IMPACT postdocs Maryam Yashtini and Christina Frederick soon to start faculty appointments at Georgetown and NJIT, respectively;
+Stas Minsker (Math/Stats student, faculty at USC, LA),
+Nayantara Bhatnagar, Adam Marcus, Amin Saberi and Emma Cohen (all ACO students, now faculty at Delaware, Princeton and Stanford, and a researcher at the Center for Communications Research in Princeton, respectively).
+
+
+
+\subsection{Curriculum Development}
+\label{sec:courses}
+
+TRIAD will support the development of transdisciplinary courses for foundations of data
+science. Justin Romberg and Mark Davenport will design a new data science related machine
+learning course. Tetali and others will develop ``Mathematics of Data Science'' at the undergraduate level.
+Planned topics include fundamentals from high-dimensional subspaces,
+% (Law of Large Numbers, elements of gaussian random variables, concentration of measure for the sphere, random projections, and the Johnson-Lindenstrauss Lemma),
+singular value decomposition,
+%(Best k-rank approximation; methods for computing SVD, and applications)
+Markov chains, and machine learning.
+%(Basic examples; penalizing complexity; Perceptron Algorithm; Kernel Functions; VC-Dimension)
+The institute will support activities whose benefits transcend Georgia Tech through
+development of tutorials, on-line courses, course modules, lecture notes, tutorials, and
+sharable slide sets.
+
+This line of activities is aligned with many existing efforts on Georgia Tech campus.
+We describe a select few.
+Michael Lacey taught a special topics course on
+``Mathematics of Compressive Sensing" during  Fall 2016, which had a large (50+) attendance.
+%The topics covered the basics of linear compressive sensing, including concentration of measure for empirical processes, and their application to the analysis of random sensing matrices.
+%The Null Space Property characterizes recovery of sparse vectors, and it's stability analogs.  Concentration of measure for empirical processes, and their application to the analysis of random sensing matrices.  VC Classes, and their role in the analysis of non-linear compressive sensing.  Elements of matricial compressive sensing.
+Jeff Wu and Arkadi Nemirovski are currently co-teaching a course  on topics at the interface of statistics and optimization.
+Arkadi Nemirovski, Vladimir Koltchinskii, and others are writing a book on optimization methods in statistics. Georgia Tech also has outstanding on-line degree programs hailed as
+a national model.
+
+
+\clearpage
+
+\begin{center}
+Plans for outreach and for dissemination of outcomes
+\end{center}
+
+{\bf Plans for outreach and for dissemination of outcomes}.
+
+\subsection{Workshops}
+\label{sec:workshops}
+TRIAD will hold about three workshops each year, along the lines of the three research
+themes the institute focuses on. The workshops will be national gatherings of junior and senior researchers, early career researchers such as postdocs, and graduate and senior
+undergraduate students, with additional international participants.
+These will be week-long events which will include (besides research presentations)
+tutorials, poster sessions, panels, working groups, open problem sessions, and
+% suppressing -- speed-dating meetings ...
+tea-time gatherings to encourage collaboration among researchers.
+TRIAD will use advanced information technology to disseminate findings from these workshops online.
+
+Our team has planned a number of initial workshops to hit the ground running as soon as the
+institute is formed:
+
+1. With the help of the Algorithms \& Randomness Center (ARC), we propose a workshop
+on {\em Randomness in Data Science and Optimization}, and feature top experts in
+TCS and optimization. This will be co-organized by
+Singh, Vempala, Vigoda and Tetali.
+
+2.  Koltchinskii, Nemirovski, and Romberg will co-organize a workshop addressing current challenges in optimization algorithms for modern datasets,  high-dimensional statistics and nonconvex inference problems, bringing together relevant statisticians and experts in continuous optimization and signal processing.
+
+3. Huo and his colleagues (e.g., Le Song) will organize a workshop on decentralized and scalable statistical inference, as well as deep learning related methodologies.
+
+\medskip
+
+Topics for other workshops will be decided by the TRIAD team, taking community feedback and
+evolving data science landscape into account for maximum impact. External researchers will be welcomed and involved in both organizing the scientific program of the workshops as well as
+plan topic areas and activities. By leveraging support from synergistic institutions at Georgia Tech (IDEaS, ARC, South Hub, etc.), we will be able to organize or co-organize more workshops than the nine budgeted. We will also hold one or two workshops focused on
+education in foundations of data science, vital to creating future workforce in this economically important area.
+
+\noindent
+{\bf Prior experience:}
+The PIs have track record of hosting interdisciplinary workshops, some of which have launched new subfields in recent years. ARC hosted several workshops bringing experts in
+randomized algorithms, MCMC and phase transitions, submodular optimization and network
+science. Externally, Tetali co-organized a thematic workshop  {\em Graphical Models, Statistical Inference and Algorithms} (GRAMSIA) twice at the NSF-funded math institutes
+IPAM (January 2012) and IMA (May 2015). Koltchinskii co-organized a workshop at the
+NSF-funded institute SAMSI in 2014 on {\em Geometric Aspects of High-Dimensional Inference}.
+Huo organized similar events at SAMSI, and is currently involved in the forthcoming
+Joint Statistics Meeting, and a Banff workshop on data science related topics.
+These workshops have been instrumental in bringing relevant experts  to come together and exchange novel ideas and breakthrough algorithms. The themes have evolved along with the frontier topics at the heart of the foundations of data science.
+
+\clearpage
+
+\baselineskip=1.2
+\normalbaselineskip
+\pagenumbering{arabic}
+
+%\nocite{*}
+
+\bibliographystyle{plain}
+%\bibliographystyle{plainnat}
+\bibliography{strides00}
+
+
+
+\end{document}
+
